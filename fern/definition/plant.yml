@@ -18,11 +18,10 @@ service:
       
       examples:
         - name: AddPlantExample
-          request:
-            body: 
-              name: Fern
-              tags: ["green", "leafy"]
-              status: available
+          request: 
+            name: Fern
+            tags: ["green", "leafy"]
+            status: available
           response:
             body:
               id: 101
@@ -43,10 +42,9 @@ service:
       examples:
         - name: UpdatePlantExample
           request:
-            body: 
-              name: Fern
-              tags: ["green", "leafy"]
-              status: sold
+            name: Fern
+            tags: ["green", "leafy"]
+            status: sold
           response:
             body:
               id: 101
@@ -65,8 +63,7 @@ service:
       response: list<types.Plant>
       examples:
         - name: SearchByStatusExample
-          request:
-            query-parameters:
+          query-parameters:
               status: available
           response:
             body:
@@ -90,9 +87,8 @@ service:
       response: list<types.Plant>
       examples:
         - name: SearchByTagssExample
-          request:
-            query-parameters:
-              tags: ["green", "leafy", "spiky", "desert"]
+          query-parameters:
+            tags: ["green", "leafy", "spiky", "desert"]
           response:
             body:
               - id: 101
