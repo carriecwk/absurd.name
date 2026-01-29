@@ -62,7 +62,7 @@ navigation:
 colors:
   accentPrimary: 
     light: '#0b5fff'
-    dark: '#7aa2ff' 
+    dark: '#919499' 
   background: 
     light: '#ffffff'
     dark: '#000000'
