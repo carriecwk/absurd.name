@@ -1,5 +1,6 @@
 imports:
   types: types.yml
+  errors: errors.yml
 
 service:
   auth: false
