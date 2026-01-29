@@ -1,0 +1,112 @@
+imports:
+  types: types.yml
+
+service:
+  auth: false
+  base-path: /plant
+  endpoints:
+    addPlant:
+      display-name: Add a new plant to the store
+      method: POST
+      path: /
+      request:
+        body: types.PlantUpsertRequest
+      response: types.Plant
+      errors:
+        - MethodNotAllowedError
+      
+      examples:
+        - name: AddPlantExample
+          request:
+            body: 
+              name: Fern
+              tags: ["green", "leafy"]
+              status: available
+          response:
+            body:
+              id: 101
+              name: Fern
+              status: available
+              tags: ["green", "leafy"]
+
+    updatePlant:
+      display-name: Update an existing plant
+      method: PUT
+      path: /
+      request: 
+        body: types.PlantUpsertRequest
+      response: types.Plant
+      errors:
+        - BadRequestError
+        - NotFoundError
+      examples:
+        - name: UpdatePlantExample
+          request:
+            body: 
+              name: Fern
+              tags: ["green", "leafy"]
+              status: sold
+          response:
+            body:
+              id: 101
+              name: Fern
+              status: sold
+              tags: ["green", "leafy"]
+
+    searchPlantsByStatus:
+      display-name: Search plants by status
+      method: GET
+      path: /search/status
+      request:
+        name: SearchPlantsByStatusRequest
+        query-parameters:
+          status: optional<types.PlantStatus>
+      response: list<types.Plant>
+      examples:
+        - name: SearchByStatusExample
+          request:
+            query-parameters:
+              status: available
+          response:
+            body:
+              - id: 101
+                name: Fern
+                status: available
+                tags: ["green", "leafy"]
+              - id: 103
+                name: Cactus
+                status: available
+                tags: ["spiky", "desert"]
+
+    searchPlantsByTags:
+      display-name: Search plants by tags
+      method: GET
+      path: /search/tags
+      request:
+        name: SearchPlantsByTagsRequest
+        query-parameters:
+          tags: optional<list<string>>      
+      response: list<types.Plant>
+      examples:
+        - name: SearchByTagssExample
+          request:
+            query-parameters:
+              tags: ["green", "leafy", "spiky", "desert"]
+          response:
+            body:
+              - id: 101
+                name: Fern
+                status: available
+                tags: ["green", "leafy"]
+              - id: 103
+                name: Cactus
+                status: available
+                tags: ["spiky", "desert"]
+
+    getPlantById:
+      display-name: Find plants by ID
+      method: GET
+      path: /{plantId}
+      path-parameters:
+        plantId: integer
+      response: types.Plant

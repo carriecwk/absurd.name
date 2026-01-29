@@ -1,0 +1,11 @@
+name: api
+
+error-discrimination:
+  strategy: status-code
+
+environments:
+  Sandbox: https://api.plantstore.dev
+  Production: https://api.plantstore.prod
+
+default-environment: Production
+

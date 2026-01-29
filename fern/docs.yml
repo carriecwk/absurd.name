@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=https://schema.buildwithfern.dev/docs-yml.json
+
+instances:
+  - url: https://chaewon-kim-demo.docs.buildwithfern.com
+
+announcement: 
+  message: "Welcome to the Fern take home docs assignment"
+
+title: Plant Store API | Documentation
+
+logo:                                
+  href: https://chaewon-kim-demo.docs.buildwithfern.com
+  dark: assets/logo-dark.svg
+  light: assets/logo-light.svg
+
+navbar-links:
+  - type: minimal
+    text: Learn More
+    url: https://buildwithfern.com/
+  - type: outlined
+    text: Plants
+    url: https://buildwithfern.com/
+  - type: filled
+    text: About Us
+    url: https://buildwithfern.com/
+
+layout:
+  tabs-placement: header
+  searchbar-placement: header
+  header-height: 64px
+
+tabs:
+  home:
+    display-name: Home
+  api:
+    display-name: API Reference
+  instructions:
+    display-name: Instructions
+
+navigation:
+  - tab: home
+    layout: 
+      - page: Home
+        path: ./home.mdx
+  - tab: api
+    layout:
+      - api: API Reference
+        display-errors: true
+        paginated: true
+        layout: 
+          - webhooks:
+              - plantCreated
+          - plant
+          - user
+  - tab: instructions
+    layout:
+      - section: Instructions
+        contents: 
+          - page: Instructions
+            path: ./instructions.mdx
+
+colors:
+  accentPrimary: '#ffffff' 
+  background: 
+    light: '#ffffff'
+    dark: '#000000'
+ 

@@ -1,0 +1,55 @@
+types:
+  
+  Plant:
+    properties:
+      id: optional<integer>
+      name: optional<string>
+      status: optional<PlantStatus>
+      tags: optional<list<string>>
+
+  PlantStatus:
+    enum:
+      - available
+      - pending
+      - sold
+
+  PlantUpsertRequest:
+    docs: Details of the plant to add or update
+    properties:
+      name: optional<string>
+      category: optional<string>
+      tags: optional<list<string>>
+      status: optional<PlantStatus>
+
+  User:
+    properties:
+      id: optional<integer>
+      username: optional<string>
+      email: optional<string>
+
+  AuthToken:
+    properties: 
+      token: optional<string>
+      expiresIn: optional<integer>
+
+  ErrorMessage:
+    docs: Generic error payload
+    properties:
+      message: optional<string>
+
+  PlantCreatedWebhookPayload:
+    docs: Payload sent when a new plant is created 
+    properties: 
+      event: literal<"plant.created">
+      createdAt: datetime
+      plant: Plant
+    examples:
+      - name: PlantCreated
+        value:
+          event: plant.created
+          createdAt: 2024-06-01T14:22:31Z
+          plant:
+            id: 102
+            name: Golden Pothos
+            status: available
+            tags: ["green", "hanging", "easy-care"]

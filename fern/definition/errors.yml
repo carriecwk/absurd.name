@@ -1,0 +1,15 @@
+imports:
+  types: types.yml
+
+errors:
+  BadRequestError:
+    status-code: 400
+    type: types.ErrorMessage
+
+  NotFoundError:
+    status-code: 404
+    type: types.ErrorMessage
+
+  MethodNotAllowedError:
+    status-code: 405
+    type: types.ErrorMessage

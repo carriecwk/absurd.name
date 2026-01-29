@@ -1,0 +1,30 @@
+imports:
+  types: types.yml
+
+service:
+  auth: false
+  base-path: /user
+  endpoints:
+    login:
+      docs: Logs user into the system
+      method: GET
+      path: /auth/login
+      request:
+        name: LoginRequest
+        query-parameters:
+          username: optional<string>
+          password: optional<string>      
+      response: types.AuthToken
+
+    logout:
+      docs: Logs out current logged-in user session
+      method: GET
+      path: /auth/logout
+
+    getUserByUsername:
+      docs: Get user by username
+      method: GET
+      path: /{username}
+      path-parameters:
+        username: string
+      response: types.User

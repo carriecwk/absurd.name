@@ -1,0 +1,9 @@
+imports: 
+  types: types.yml
+
+webhooks:
+  plantCreated:
+    display-name: Plant created
+    docs: Fired when a new plant is created
+    method: POST
+    payload: types.PlantCreatedWebhookPayload 
