@@ -60,7 +60,8 @@ navigation:
             path: ./instructions.mdx
 
 colors:
-  accentPrimary: '#ffffff' 
+  accentPrimary: 
+    light: '#ffffff'
   background: 
     light: '#ffffff'
     dark: '#000000'
