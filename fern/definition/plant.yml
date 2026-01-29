@@ -14,7 +14,7 @@ service:
         body: types.PlantUpsertRequest
       response: types.Plant
       errors:
-        - MethodNotAllowedError
+        - errors.MethodNotAllowedError
       
       examples:
         - name: AddPlantExample
@@ -38,8 +38,8 @@ service:
         body: types.PlantUpsertRequest
       response: types.Plant
       errors:
-        - BadRequestError
-        - NotFoundError
+        - errors.BadRequestError
+        - errors.NotFoundError
       examples:
         - name: UpdatePlantExample
           request:
