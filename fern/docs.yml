@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://schema.buildwithfern.dev/docs-yml.json
 
 instances:
-  - url: https://chaewon-kim-demo.docs.buildwithfern.com
+  - url: https://carrie-kim-demo.docs.buildwithfern.com
 
 announcement: 
   message: "Welcome to the Fern take home docs assignment"
@@ -9,7 +9,7 @@ announcement:
 title: Plant Store API | Documentation
 
 logo:                                
-  href: https://chaewon-kim-demo.docs.buildwithfern.com
+  href: https://carrie-kim-demo.docs.buildwithfern.com
   dark: assets/logo-dark.svg
   light: assets/logo-light.svg
 
@@ -61,7 +61,8 @@ navigation:
 
 colors:
   accentPrimary: 
-    light: '#ffffff'
+    light: '#0b5fff'
+    dark: '#7aa2ff' 
   background: 
     light: '#ffffff'
     dark: '#000000'
